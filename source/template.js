@@ -70,7 +70,7 @@ Liquid.Template.registerFilter = function(filters) {
 }
 
 Liquid.Template.tokenize = function(src) {
-  var tokens = src.split( /(\{\%.*?\%\}|\{\{.*?\}\}?)/ );
+  var tokens = src.split( /(\{\%[.|\S\s]*?\%\}|\{\{[.|\S\s]*?\}\}?)/ );
   // removes the rogue empty element at the beginning of the array
   if(tokens[0] == ''){ tokens.shift(); }
 //  console.log("Source tokens:", tokens)
