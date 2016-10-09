@@ -7,7 +7,13 @@ Liquid.Variable = Liquid.Class.extend({
     var self = this;
     var match = markup.match(/\s*("[^"]+"|'[^']+'|[^\s,|]+)/);
     if( match ) {
-      this.name = match[1];
+      
+      if( Math.sign( match[1] ) == -1 ){
+        this.name = '"' + match[1].replace(/[\s\t\n]+/g, ' ') + '"';
+      } else {
+        this.name = match[1].replace(/[\s\t\n]+/g, ' '); 
+      }
+      
       var filterMatches = markup.match(/\|\s*(.*)/);
       if(filterMatches) {
         var filters = filterMatches[1].split(/\|/);
