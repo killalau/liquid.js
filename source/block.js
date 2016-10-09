@@ -57,7 +57,7 @@ Liquid.Block = Liquid.Tag.extend({
   },
   
   createVariable: function(token) {
-    var match = token.match(/^\{\{(.*)\}\}$/);
+    var match = token.match(/^\{\{([.|\S\s]*)\}\}/);
     if(match) { return new Liquid.Variable(match[1]); }
     else { throw ("Variable '"+ token +"' was not properly terminated with: }}"); }
   },
