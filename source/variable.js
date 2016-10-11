@@ -9,9 +9,9 @@ Liquid.Variable = Liquid.Class.extend({
     if( match ) {
       
       if( Math.sign( match[1] ) == -1 ){
-        this.name = '"' + match[1].replace(/[\s\t\n]+/g, ' ') + '"';
+        this.name = '"' + match[1].replace(/[\t\n]+/g, ' ') + '"';
       } else {
-        this.name = match[1].replace(/[\s\t\n]+/g, ' '); 
+        this.name = match[1].replace(/[\t\n]+/g, ' '); 
       }
       
       var filterMatches = markup.match(/\|\s*(.*)/);
